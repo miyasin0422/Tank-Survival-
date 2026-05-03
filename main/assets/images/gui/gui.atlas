@@ -1,0 +1,45 @@
+images {
+  image: "/main/assets/images/tank/\345\274\276.png"
+}
+images {
+  image: "/main/assets/images/tank/\345\274\2762.xcf.png"
+}
+images {
+  image: "/main/assets/map/heal.png"
+}
+images {
+  image: "/main/assets/map/poison.png"
+}
+images {
+  image: "/main/assets/map/tp.png"
+}
+images {
+  image: "/main/assets/map/tp2.png"
+}
+images {
+  image: "/main/assets/map/tullet.png"
+}
+images {
+  image: "/main/assets/images/tank/bottom_blue.png"
+}
+images {
+  image: "/main/assets/images/tank/bottom_red.png"
+}
+images {
+  image: "/main/assets/images/tank/upper_blue.png"
+}
+images {
+  image: "/main/assets/images/tank/upper_yellow.png"
+}
+images {
+  image: "/main/assets/images/gui/\345\243\201.png"
+}
+images {
+  image: "/main/assets/images/gui/\345\272\212.png"
+}
+images {
+  image: "/main/assets/images/title.png"
+}
+margin: 0
+extrude_borders: 2
+inner_padding: 0

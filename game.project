@@ -1,0 +1,28 @@
+[bootstrap]
+main_collection = /main/main.collectionc
+
+[script]
+shared_state = 1
+
+[display]
+width = 1280
+height = 720
+
+[project]
+title = Tank Survival!
+version = 0.1
+dependencies = https://github.com/subsoap/defos/archive/master.zip
+
+[physics]
+max_collisions = 1024
+
+[collection_proxy]
+max_count = 15
+
+[windows]
+app_icon = /main/tank.ico
+
+[sound]
+max_sound_buffers = 128
+max_sound_instances = 512
+

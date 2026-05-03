@@ -1,0 +1,85 @@
+festival = true
+
+function init(self)
+  msg.post(".", "acquire_input_focus")
+  level = 0
+  self.restart_flag = false
+  --windowの設定
+	defos.disable_window_resize()
+	defos.disable_minimize_button(festival)
+	defos.disable_maximize_button(festival)
+	defos.set_always_on_top(festival)
+	display = defos.get_displays()
+	display_id = defos.get_current_display_id()
+	defos.set_view_size((display[display_id].bounds.width - 1280) / 2, (display[display_id].bounds.height - 720) / 2, 1280, 720)
+	defos.set_window_icon("/main/tank.ico")
+	defos.set_console_visible(false)
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+  if message_id == hash("proxy_loaded") then
+     defos.set_cursor_visible(false)
+    msg.post(sender, "init")
+    msg.post(sender, "enable")
+  elseif message_id == hash("proxy_unloaded") then
+    if self.restart_flag then
+      defos.set_cursor_visible(true)
+      level = level - 1
+      msg.post(".", "next_level")
+    end
+  elseif message_id == hash("gameover") then
+    if not (level == 0) then
+      msg.post("#level"..level, "unload")
+    end
+    level = 0
+    msg.post("main:/go", "enable")
+  elseif message_id == hash("restart") then
+    if level >= 1 then
+      self.restart_flag = true
+      msg.post("#level"..level, "unload")
+    end
+  elseif message_id == hash("next_level") then
+    if level > 0 and not self.restart_flag then
+      --リスタートしないとき
+      msg.post("#level"..level, "unload")
+    else
+      self.restart_flag = false
+    end
+    if level >= 10 then
+      level = 0
+      msg.post("main:/go", "enable")
+    else
+      level = level + 1
+      if level == 0 then return end      --level = 10
+      msg.post("#level"..level, "load")
+    end
+    enemy_count = nil
+    boss_count = nil
+    player_count = nil
+    msg.post("msg_gui", "next_level")
+  end
+end
+
+function on_input(self, action_id, action)
+  if action_id == hash("fullscreen") and action.pressed then
+    defos.toggle_fullscreen()
+  	defos.disable_minimize_button(festival)
+  	defos.disable_maximize_button(festival)
+  	defos.set_always_on_top(festival)
+  end
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end

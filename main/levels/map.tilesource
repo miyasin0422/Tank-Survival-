@@ -1,0 +1,80 @@
+image: "/main/assets/map/map.png"
+tile_width: 32
+tile_height: 32
+tile_margin: 0
+tile_spacing: 0
+collision: "/main/assets/map/map.png"
+material_tag: "tile"
+convex_hulls {
+  index: 0
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 4
+  count: 4
+  collision_group: "wall"
+}
+convex_hulls {
+  index: 8
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 12
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 16
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 20
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 24
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 28
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 32
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 36
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 40
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 44
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 48
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 52
+  count: 4
+  collision_group: ""
+}
+collision_groups: "wall"
+extrude_borders: 1
+inner_padding: 0

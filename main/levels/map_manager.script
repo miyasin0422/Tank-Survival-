@@ -1,0 +1,47 @@
+require "main.common"
+
+function init(self)
+  heal_position = {}
+  tp_obj_id ={}
+  tp_flag=true
+  enemy_count = 0
+  boss_count = 1
+  for iy = 1, 23 do
+    for ix = 1, 40 do
+      local tile = tilemap.get_tile("/map#level", "player", ix, iy)
+      if not (tile == 0) then
+        tilemap.set_tile("/map#level", "player", ix, iy, 0)
+      end
+      local pos = vmath.vector3(ix*32-16, iy*32-16, 0)
+      if tile == 3 then
+        factory.create("#player", pos)
+      elseif tile == 4 then
+        factory.create("#enemy", pos)
+        enemy_count = enemy_count + 1
+      elseif tile == 5 then
+        heal_position[#heal_position + 1] = {pos.x, pos.y}
+      elseif tile == 6 then
+        factory.create("#poison_item", pos)
+      elseif tile == 7 then
+        tp_obj_id[1] = factory.create("#tp_item", pos)
+      elseif tile == 9 then
+        tp_obj_id[2] = factory.create("#tp2_item", pos)
+      elseif tile == 8 then
+        --up
+        factory.create("#tullet_item", pos, vmath.quat_rotation_z(get_angle(vmath.vector3(0, 1, 0))))
+      elseif tile == 10 then
+        --down
+        factory.create("#tullet_item", pos, vmath.quat_rotation_z(get_angle(vmath.vector3(0, -1, 0))))
+      elseif tile == 11 then
+        --left
+        factory.create("#tullet_item", pos, vmath.quat_rotation_z(get_angle(vmath.vector3(-1, 0, 0))))
+      elseif tile == 12 then
+        --right
+        factory.create("#tullet_item", pos, vmath.quat_rotation_z(-1 * get_angle(vmath.vector3(1, 0, 0))))
+      elseif tile == 13 then
+        factory.create("#boss", pos)
+        boss_count = boss_count + 1
+      end
+    end
+  end
+end

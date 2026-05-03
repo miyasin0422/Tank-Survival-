@@ -1,0 +1,47 @@
+require "main.common"
+local register_flag
+local angle
+
+function init(self)
+  register_flag = false
+  self.dt = 0
+end
+
+function final(self)
+end
+
+function update(self, dt)
+	if not msg_flag then return end
+  if register_flag then
+    go.set_position(go.get_position(self.id))
+    if not player_alive then return end
+    local dir
+    -- upper => player のベクトル
+    dir = go.get_position(tank_id) - go.get_position()
+    -- そのベクトルの角度を求める
+    angle = get_angle(dir)
+    if go.get_position(tank_id).x > go.get_position().x then
+      angle = 2 * math.pi - angle
+    end
+    -- 角度を適用する
+    go.set_rotation(vmath.quat_rotation_z(angle))
+
+    self.dt = self.dt + dt
+    if self.dt >= 2.5 then --2.5
+      local pos = vmath.rotate(go.get_rotation(), vmath.vector3(20, 32, 0))
+      factory.create("#bullet", go.get_position() + pos)
+      self.dt = 0
+    end
+  end
+end
+
+function on_message(self, message_id, message, sender)
+  if message_id == hash("register") then
+    self.id = sender
+    register_flag = true
+  end
+end
+
+
+function on_reload(self)
+end

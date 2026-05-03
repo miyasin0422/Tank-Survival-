@@ -1,0 +1,31 @@
+function init(self)
+  hp_box = gui.get_node("hp_box")
+  gui.set_color(hp_box, vmath.vector3(256, 1, 256))
+  hp_number = gui.get_node("hp_number")
+  level_name = gui.get_node("level_name")
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+  if player_flag then
+    gui.set_size(hp_box, vmath.vector3(player_hp * 60, 40, 1))
+    gui.set_text(hp_number, player_hp)
+    gui.set_text(level_name, "level "..level)
+  else
+    msg.post(".", "disable")
+  end
+  if player_hp == nil then
+    return
+  elseif player_hp <= 2 then
+    gui.set_color(hp_box, vmath.vector3(1, 256, 256))
+  elseif player_hp <= 5 then
+    gui.set_color(hp_box, vmath.vector3(1, 1, 256))
+  else
+    gui.set_color(hp_box, vmath.vector3(256, 1, 256))
+  end
+
+end

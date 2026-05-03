@@ -1,0 +1,14 @@
+require "main.common"
+
+function init(self)
+  timer.delay(4, true, tullet_delay)
+end
+
+function tullet_delay(self, handle, time_elapsed)
+  if not player_alive then return end
+  angle = get_angle(go.get_position(tank_id) - go.get_position())
+  if go.get_position().x < go.get_position(tank_id).x then
+    angle = 2 * math.pi - angle
+  end
+  factory.create("#factory", go.get_position() + vmath.rotate(go.get_rotation(), vmath.vector3(0, 1, 0)) * -6, vmath.quat_rotation_z(angle))
+end

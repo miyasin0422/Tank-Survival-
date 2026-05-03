@@ -1,0 +1,41 @@
+7
+WECraft
+OnlineTamagoFPS
+JakudenWars
+わんわんお
+素因数分解パズル
+ねずみ～らん2
+Tank Survival!
+Astrum
+/Game/WECraft/WECraft.exe
+/Game/TamagoOnlineFPS/TamagoOnlineFPS.exe
+/Game/JakudenWars.exe
+/Game/wanwan.exe
+/Game/Factoring/Factoring.exe
+/Game/nezumi.exe
+/Game/Tank Survival!/TankSurvival.exe
+/Game/Astrum.exe
+/Text/WECraft.txt
+/Text/OnlineTamago.txt
+/Text/JakuWars.txt
+/Text/wanwan.txt
+/Text/soinsu.txt
+/Text/nezumi.txt
+/Text/tank.txt
+/Text/as.txt
+ᴎ=nxoʇnɯ
+New-Sea & 洋なし
+ARUSE & ᴎ=nxoʇnɯ
+洋ナシ & ᴎ=nxoʇnɯ
+ᴎ=nxoʇnɯ
+ARUSE & 洋ナシ\n& ᴎ=nxoʇnɯ
+miya & ᴎ=nxoʇnɯ
+ᴎ=nxoʇnɯ
+/Picture/WECraft.png
+/Picture/otf.png
+/Picture/JakudenWars.png
+/Picture/wanwano.png
+/Picture/factor.png
+/Picture/mouse_run.png
+/Picture/tank.png
+/Picture/Astrum.png

@@ -1,0 +1,42 @@
+function init(self)
+
+end
+
+function final(self)
+
+end
+
+function update(self, dt)
+end
+
+function on_message(self, message_id, message, sender)
+  if message_id == hash("trigger_response") then
+    if not festival then
+      sound.stop("#warp")
+      sound.play("#warp")
+    end
+    if tp_flag and message.enter then
+      opponent_id = ""
+     if go.get_id() == tp_obj_id[1] then
+       --自分が紫
+       opponent_id = tp_obj_id[2]
+     else
+       --自分が緑
+       opponent_id = tp_obj_id[1]
+     end
+     go.set_position(go.get_position(opponent_id), tank_id)
+     tp_flag = false
+    elseif not message.enter then
+     tp_flag = true
+    end
+  end
+end
+
+
+function on_input(self, action_id, action)
+
+end
+
+function on_reload(self)
+
+end

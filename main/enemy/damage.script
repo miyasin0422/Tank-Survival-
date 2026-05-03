@@ -1,0 +1,8 @@
+function init(self)
+  go.set_rotation(vmath.quat_rotation_z(0))
+  timer.delay(0.3, false, damage)
+end
+
+function damage(self)
+  go.delete()
+end

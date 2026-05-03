@@ -1,0 +1,45 @@
+images {
+  image: "/main/assets/images/tank/bottom_blue.png"
+}
+images {
+  image: "/main/assets/images/tank/bottom_green.png"
+}
+images {
+  image: "/main/assets/images/tank/bottom_red.png"
+}
+images {
+  image: "/main/assets/images/tank/bottom_yellow.png"
+}
+images {
+  image: "/main/assets/images/tank/upper_blue.png"
+}
+images {
+  image: "/main/assets/images/tank/upper_green.png"
+}
+images {
+  image: "/main/assets/images/tank/upper_red.png"
+}
+images {
+  image: "/main/assets/images/tank/upper_yellow.png"
+}
+images {
+  image: "/main/assets/images/tank/bullet.png"
+}
+images {
+  image: "/main/assets/images/tank/\345\274\2762.xcf.png"
+}
+images {
+  image: "/main/assets/images/tank/hp_bar.png"
+}
+images {
+  image: "/main/assets/images/tank/empty_bar.png"
+}
+images {
+  image: "/main/assets/images/cursor.png"
+}
+images {
+  image: "/main/assets/images/tank/line.png"
+}
+margin: 0
+extrude_borders: 1
+inner_padding: 0

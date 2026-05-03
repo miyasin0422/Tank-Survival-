@@ -1,0 +1,11 @@
+
+function update(self, dt)
+  go.set_position(go.get_position(tank_id) + vmath.vector3(0, -30, 0))
+  label.set_text("#label", "弾数: "..bullet_count)
+  if bullet_count == 0 then
+    go.set("#label", "color", vmath.vector4(1, 256, 256, 1))
+  else
+    go.set("#label", "color", vmath.vector4(256, 256, 256, 1))
+  end
+
+end

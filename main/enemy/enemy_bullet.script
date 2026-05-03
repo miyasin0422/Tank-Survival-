@@ -1,0 +1,77 @@
+require "main.common"
+
+function init(self)
+  self.t = vmath.rotate(go.get_rotation(), vmath.vector3(0, 1, 0))
+  self.t = vmath.normalize(self.t)
+  self.count = 0
+  msg.post("#sprite", "disabled")
+end
+
+function final(self)
+  particlefx.play("#explosion")
+end
+
+function update(self, dt)
+  --position
+  self.pos = go.get_position()
+  self.pos = self.pos + self.t * 300 * dt
+  go.set_position(self.pos)
+  if self.pos.x > 1500 or self.pos.x < -50 or self.pos.y > 800 or self.pos.y < -50 or enemy_count == 0 and boss_count == 1 or boss_count == 0 or player_flag == false then
+    go.delete()
+  end
+  --rotation
+  --方向ベクトルの角度を計算する
+  angle = get_angle(self.t)
+  --自分のx座標とマウスのx座標の大きさ比べ
+  if self.t.x > 0 then
+    angle = math.pi * 2 - angle
+  end
+  dir = vmath.quat_rotation_z(angle)
+  go.set_rotation(dir)
+end
+
+function on_message(self, message_id, message, sender)
+  if message_id == hash("contact_point_response") then
+    if message.other_group == hash("enemy_bullet") and message.own_group == hash("bullet") then
+      go.delete(message.other_id)
+      go.delete()
+    elseif message.other_group == hash("wall") then
+      if not festival then
+        sound.stop("#reflection")
+        sound.play("#reflection")
+      end
+      if message.normal.x < 0 then
+        --右に行こうとしている＝＞左に動かす
+        if self.t.x > 0 then
+          self.count = self.count + 1
+          self.t.x = inverse(self, self.t.x)
+        end
+      elseif message.normal.x > 0 then
+        --逆
+        if self.t.x < 0 then
+          self.count = self.count + 1
+          self.t.x = inverse(self, self.t.x)
+        end
+      elseif message.normal.y < 0 then
+        --上に行こうとしている＝＞下に動かす
+        if self.t.y > 0 then
+          self.count = self.count + 1
+          self.t.y = inverse(self, self.t.y)
+        end
+      elseif message.normal.y > 0 then
+        --逆
+        if self.t.y < 0 then
+          self.count = self.count + 1
+          self.t.y = inverse(self, self.t.y)
+        end
+      end
+      if self.count >= 3 then
+        go.delete()
+      end
+    end
+  end
+end
+
+function inverse(self, value)
+  return value * -1
+end
