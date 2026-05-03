@@ -1,13 +1,9 @@
-# Welcome to Defold
+# Tank-Survival-
 
-This project was created from the "empty" project template.
+高校のとき初めて作った2DシューティングゲームですWASD操作で移動して、敵をカーソルで狙い撃ちます自機、
+敵機の制御、オブジェクト同士の当たり判定を工夫しました特に弾の当たり判定や、跳弾したときのベクトル制御が
 
-The settings in ["game.project"](defold://open?path=/game.project) are all the default. A bootstrap empty ["main.collection"](defold://open?path=/main/main.collection) is included.
+Lenovo
 
-Check out [the documentation pages](https://defold.com/learn) for examples, tutorials, manuals and API docs.
-
-If you run into trouble, help is available in [our forum](https://forum.defold.com).
-
-Happy Defolding!
-
----
+大変でした
+使用ツール:Defold 製作期間:2019/4~2019/9
